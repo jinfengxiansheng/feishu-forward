@@ -63,11 +63,16 @@ def get_user_access_token():
         print("❌ 未找到 refresh_token，请先运行: python feishu-forward-cloud.py --auth")
         sys.exit(1)
 
+    app_id = os.environ.get("FEISHU_APP_ID", "")
+    app_secret = os.environ.get("FEISHU_APP_SECRET", "")
+
     url = "https://open.feishu.cn/open-apis/authen/v1/refresh_access_token"
     headers = {"Content-Type": "application/json"}
     data = json.dumps({
         "grant_type": "refresh_token",
-        "refresh_token": refresh_token
+        "refresh_token": refresh_token,
+        "app_id": app_id,
+        "app_secret": app_secret,
     }).encode("utf-8")
 
     req = urllib.request.Request(url, data=data, headers=headers, method="POST")
