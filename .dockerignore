@@ -1,11 +1,12 @@
-__pycache__/
+forward.log
 *.pyc
+__pycache__/
+.git/
+.feishu*
 feishu-forward-state.json
 feishu-token.json
-railway-test-state.json
-*.log
+node_modules/
 .workbuddy/
-feishu-forward.py
 run-hidden.vbs
 start-forward.bat
-.github/
+*.bat
